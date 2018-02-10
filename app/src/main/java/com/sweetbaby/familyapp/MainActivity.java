@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nairobi,zoom));
 
         googleMap.addMarker(new MarkerOptions().position(new LatLng(-1.279939, 36.925286)).title("Mother"));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(-1.255307, 36.873873)).title("Sister"));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(-1.255305, 36.873873)).title("Sister"));
         googleMap.addMarker(new MarkerOptions().position(new LatLng(-1.291701, 36.826280)).title("Father"));
         //googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
     }
