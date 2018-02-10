@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_viewbar"
+            android:icon="@drawable/ic_mapview"
+            android:title="View" />
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_messages"
+            android:title="Messages" />
+        <item
+            android:id="@+id/nav_family"
+            android:icon="@drawable/ic_family"
+            android:title="Family" />
+        <item
+            android:id="@+id/nav_tree"
+            android:icon="@drawable/ic_tree"
+            android:title="My Tree" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_gallery"
+            android:title="Gallery" />
+    </group>
+    <item android:title="Emergeny">
+        <menu>
+            <item
+                android:id="@+id/alertFam"
+                android:icon="@drawable/ic_family"
+                android:title="Alert Family" />
+            <item
+                android:id="@+id/alertPol"
+                android:icon="@drawable/ic_alertpolice"
+                android:title="Alert Security" />
+            <item
+                android:id="@+id/alertHos"
+                android:icon="@drawable/ic_hosptal"
+                android:title="Alert Hosital" />
+        </menu>
+
+    </item>
+
+    <item android:title="Advanced">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>
