@@ -4,20 +4,22 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.sweetbaby.familyapp.R;
 
-//import simiyu.com.R;
-//import joslabs.olsenservices.mainservices.MainServiceAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +29,7 @@ import com.sweetbaby.familyapp.R;
  * Use the {@link PendingFlagment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PendingFlagment extends Fragment {
+public class PendingFlagment extends Fragment implements OnMapReadyCallback {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -84,6 +86,13 @@ public class PendingFlagment extends Fragment {
 //            setSnackBar(relativelayer,"You dont have any pending order..order services now");
         //   Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
 
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        SupportMapFragment fragment = new SupportMapFragment();
+        transaction.add(R.id.mapView, fragment);
+        transaction.commit();
+
+        fragment.getMapAsync(this);
         return view;
     }
 
@@ -112,6 +121,12 @@ public class PendingFlagment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -126,7 +141,7 @@ public class PendingFlagment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-    public static void setSnackBar(View coordinatorLayout, String snackTitle) {
+    /*public static void setSnackBar(View coordinatorLayout, String snackTitle) {
         Snackbar snackbar = Snackbar.make(coordinatorLayout, snackTitle, Snackbar.LENGTH_LONG);
         ViewGroup viewGroup= (ViewGroup) snackbar.getView();
         viewGroup.setBackgroundResource(R.color.red);
@@ -135,5 +150,5 @@ public class PendingFlagment extends Fragment {
         txtv.setGravity(Gravity.FILL_HORIZONTAL);
 
         snackbar.show();
-    }
+    }*/
 }

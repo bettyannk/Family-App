@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -85,7 +86,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+        LatLng nairobi = new LatLng(-1.27, 36.92);
+        float zoom = 1;
+        googleMap.addMarker(new MarkerOptions().position(nairobi)
+                .title("Marker in Nairobi"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nairobi,zoom));
+
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(-1.279939, 36.925286)).title("Mother"));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(-1.255307, 36.873873)).title("Sister"));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(-1.291701, 36.826280)).title("Father"));
+        //googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
     }
 
     //@SuppressWarnings("StatementWithEmptyBody")
