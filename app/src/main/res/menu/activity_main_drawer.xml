@@ -31,14 +31,14 @@
                 android:id="@+id/alertFam"
                 android:icon="@drawable/ic_family"
                 android:title="Alert Family" />
-            <item
+            <!--item
                 android:id="@+id/alertPol"
                 android:icon="@drawable/ic_alertpolice"
                 android:title="Alert Security" />
             <item
                 android:id="@+id/alertHos"
                 android:icon="@drawable/ic_hosptal"
-                android:title="Alert Hosital" />
+                android:title="Alert Hosital" /-->
         </menu>
 
     </item>
