@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "234762835683",
+    "firebase_url": "https://family-app-andela.firebaseio.com",
+    "project_id": "family-app-andela",
+    "storage_bucket": "family-app-andela.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234762835683:android:ef3a340430e284b9",
+        "android_client_info": {
+          "package_name": "com.sweetbaby.familyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234762835683-tug4jh4sm60iljiq1jlp9c3vla19ihdn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sweetbaby.familyapp",
+            "certificate_hash": "5d3c8913f7a26b422c6f9d999b7cb59eab25aa04"
+          }
+        },
+        {
+          "client_id": "234762835683-igdime7vk2gubbb0th2ak2sn58tt8mbf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-ffqlyt6d6ofA2oCUKMlBA_0mhPaNnBU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234762835683-igdime7vk2gubbb0th2ak2sn58tt8mbf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
