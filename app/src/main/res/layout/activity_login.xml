@@ -118,7 +118,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2.0">
+            android:weightSum="2.0"
+            android:visibility="gone">
 
             <EditText
                 android:id="@+id/field_phone_number"
@@ -142,7 +143,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="3.0">
+            android:weightSum="3.0"
+            android:visibility="gone">
 
             <Button
                 android:theme="@style/ThemeOverlay.MyDarkButton"
