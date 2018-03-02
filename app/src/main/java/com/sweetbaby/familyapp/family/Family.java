@@ -28,12 +28,12 @@ public class Family {
     public void setImage(String image) {
         this.image = image;
     }
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
     public String getRelationship() {
         return relationship;
@@ -53,17 +53,17 @@ public class Family {
     private String name;
     private String myLocation;
     private String image;
-    private String phoneNumber;
+    private String phone;
     private String relationship;
     private String myKey;
     public Family(){
 
     }
-    public Family(String name, String myLocation, String image, String phoneNumber, String relationship,String myKey) {
+    public Family(String name, String myLocation, String image, String phone, String relationship,String myKey) {
         this.name = name;
         this.myLocation = myLocation;
         this.image = image;
-        this.phoneNumber = phoneNumber;
+        this.phone= phone;
         this.relationship = relationship;
         this.myKey = myKey;
     }

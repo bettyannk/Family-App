@@ -2,6 +2,7 @@ package com.sweetbaby.familyapp.family;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -40,6 +41,8 @@ public class AddFamily extends AppCompatActivity {
     private StorageReference mStorage;
     private DatabaseReference mDatabase;
     private static final int GALLERY_REQUEST = 1;
+    SharedPreferences pref;
+    String mykey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +55,10 @@ public class AddFamily extends AppCompatActivity {
         mSubmitBtn = (Button) findViewById(R.id.addFamilyBtn);
         mSelectImage = (ImageView) findViewById(R.id.imageSelect);
         mProgress = new ProgressDialog(this);
+        pref=getApplicationContext().getSharedPreferences("userdata",0);
+        mykey=pref.getString("ukey",null);
         mStorage = FirebaseStorage.getInstance().getReference();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Family");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Family").child(mykey);
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

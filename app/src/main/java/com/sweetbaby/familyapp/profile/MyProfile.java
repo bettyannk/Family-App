@@ -2,6 +2,7 @@ package com.sweetbaby.familyapp.profile;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -79,11 +80,20 @@ public class MyProfile extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     final Uri downloadUri = taskSnapshot.getDownloadUrl();
                     final  DatabaseReference newPost = mDatabase.push();
+                    final String key = newPost.getKey();
+                    SharedPreferences pref = getApplicationContext().getSharedPreferences("userdata",0);
+                    SharedPreferences.Editor editor=pref.edit();
+                    editor.putString("ukey",key);
+                    editor.putString("uname",name_val);
+                    editor.putString("uphone",phone_val);
+                    editor.putString("uimage",downloadUri.toString());
+                    editor.apply();
                     mDatabase.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             newPost.child("name").setValue(name_val);
                             newPost.child("phone").setValue(phone_val);
+                            newPost.child("ukey").setValue(key);
                             newPost.child("image").setValue(downloadUri.toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
