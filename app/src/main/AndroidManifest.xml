@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sweetbaby.familyapp">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,15 +16,17 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".History.HistoryMain"
-            android:label="@string/app_name"/>
-        <activity android:name=".Login.PhoneAuthActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".History.HistoryMain"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".Login.PhoneAuthActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -32,7 +35,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".family.FamilyView"
+            android:label="@string/title_activity_family_view"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".family.AddFamily"
+            android:label="@string/title_activity_add_family"
+            android:parentActivityName=".family.FamilyView"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".profile.MyProfile"
+            android:label="@string/title_activity_my_profile"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
