@@ -3,6 +3,7 @@ package com.sweetbaby.familyapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,11 +20,15 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.sweetbaby.familyapp.History.HistoryMain;
+import com.sweetbaby.familyapp.family.AddFamily;
+import com.sweetbaby.familyapp.family.FamilyView;
+import com.sweetbaby.familyapp.profile.MyProfile;
 
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
 
     Button viewfam;
+    ImageView editProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +36,23 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
 
         viewfam= findViewById(R.id.viewFam);
+
+        editProfile = headerView.findViewById(R.id.editProfile);
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MyProfile.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         SupportMapFragment mapFragment =
@@ -86,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         LatLng nairobi = new LatLng(-1.27, 36.92);
-        float zoom = 1;
+        float zoom = 15;
         googleMap.addMarker(new MarkerOptions().position(nairobi)
                 .title("Marker in Nairobi"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nairobi,zoom));
@@ -112,14 +133,25 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
         } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(MainActivity.this, AddFamily.class);
+            startActivity(intent);
+            finish();
 
         } else if (id == R.id.nav_family) {
+            Intent intent = new Intent(MainActivity.this, FamilyView.class);
+            startActivity(intent);
+            finish();
 
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }else if (id == R.id.editProfile) {
+            Intent intent = new Intent(MainActivity.this, MyProfile.class);
+            startActivity(intent);
+            finish();
+
+            }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

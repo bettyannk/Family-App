@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_add_family"
+    tools:context="com.sweetbaby.familyapp.family.AddFamily">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageSelect"
+        android:src="@mipmap/ic_account_add_photo"/>
+
+    <EditText
+        android:id="@+id/nameField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/imageSelect"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:id="@+id/phoneField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/nameField"
+        android:layout_below="@+id/nameField"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Phone Number eg +254722456789"
+        android:inputType="textPhonetic"
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/nameField" />
+    <EditText
+        android:id="@+id/relationField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/phoneField"
+        android:layout_below="@+id/phoneField"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Relation eg mother"
+        android:inputType="textPersonName"
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/phoneField" />
+
+
+    <Button
+        android:id="@+id/addFamilyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:text="Add Family"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>
