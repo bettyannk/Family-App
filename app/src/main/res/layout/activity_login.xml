@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/phone_hint"
                 android:layout_weight="1.0"
-                android:inputType="phone"/>
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/field_verification_code"

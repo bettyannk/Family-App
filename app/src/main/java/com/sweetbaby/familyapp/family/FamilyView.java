@@ -44,6 +44,10 @@ public class FamilyView extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("My family");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         pref = getApplicationContext().getSharedPreferences("userdata", 0);
         key = pref.getString("ukey", null);
@@ -103,6 +107,8 @@ public class FamilyView extends AppCompatActivity {
                                                 for (DataSnapshot mdata:dataSnapshot.getChildren()){
                                                     Log.e("correctkey",  mdata.child("ukey").getValue().toString());
                                                     String ckey=mdata.child("ukey").getValue().toString();
+                                                    String name=mdata.child("name").getValue().toString();
+                                                    getSupportActionBar().setTitle(name+"\'s\t family");
                                                     myMethod(ckey);
                                                     break;
                                                 }
